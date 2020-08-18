@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio</title>
+</head>
+<body>
+    <script src="index.js"></script>
+    <div>
+        <h1>Multiplos de 3 y 5</h1>
+        
+    </div>
+    <div>
+        <form>
+            
+            <button onclick="multiplo()">resultado</button>
+        </form>
+    </form>
+</div>
+<div id ="sum-result">
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+function multiplo () {
+  event.preventDefault();
+  
+    axios.get('http://localhost:5000/multiplo')
+        .then(response => {
+            const multiplo = response.data;
+            
+            document.getElementById("sum-result").innerHTML = multiplo;
+        })
+        .catch(error => console.error(error));
+};
+
+</script>
+</body>
+</html>

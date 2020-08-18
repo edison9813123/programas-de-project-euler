@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio2</title>
+</head>
+<body>
+    <script src="index.js"></script>
+    <div>
+        <h1>Fibonacci</h1>
+        
+    </div>
+    <div>
+        <form>
+            
+            <button onclick="fibonacci()">resultado</button>
+        </form>
+    </form>
+</div>
+<div id ="sum-result">
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+function fibonacci () {
+  event.preventDefault();
+  
+    axios.get('http://localhost:5000/fibonacci')
+        .then(response => {
+            const fibonacci = response.data;
+            
+            document.getElementById("sum-result").innerHTML = fibonacci;
+        })
+        .catch(error => console.error(error));
+};
+
+</script>
+</body>
+</html>
